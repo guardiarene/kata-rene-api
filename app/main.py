@@ -3,6 +3,7 @@ from fastapi import FastAPI
 
 from app.config import settings
 from app.db.session import Base, engine
+from app.routers import dictionary, nth_letter, shopping
 
 
 @asynccontextmanager
@@ -18,6 +19,10 @@ app = FastAPI(
     description="REST API exposing Python katas: Dictionary, Shopping and Nth Letter",
     lifespan=lifespan,
 )
+
+app.include_router(dictionary.router)
+app.include_router(shopping.router)
+app.include_router(nth_letter.router)
 
 
 @app.get("/health", tags=["health"])
