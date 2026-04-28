@@ -3,7 +3,6 @@ import pytest
 from app.services.nth_letter_service import build_word
 
 
-# Unit tests
 def test_build_word_basic():
     assert build_word(["yoda", "best", "has"]) == "yes"
 
@@ -16,7 +15,6 @@ def test_build_word_single_word():
     assert build_word(["hello"]) == "h"
 
 
-# Integration test
 @pytest.mark.asyncio
 async def test_nth_letter_endpoint(client):
     response = await client.post(
