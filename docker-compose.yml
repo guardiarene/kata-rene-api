@@ -1,0 +1,19 @@
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: kata-rene-api
+    ports:
+      - "8000:8000"
+    volumes:
+      - kata_db:/app/data
+    environment:
+      - APP_NAME=Kata Rene API
+      - APP_VERSION=0.1.0
+      - DATABASE_URL=sqlite+aiosqlite:////app/data/kata.db
+      - DEBUG=false
+    restart: unless-stopped
+
+volumes:
+  kata_db:
