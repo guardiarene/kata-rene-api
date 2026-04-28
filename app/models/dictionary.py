@@ -8,7 +8,9 @@ class Word(Base):
     __tablename__ = "words"
 
     id: Mapped[int] = mapped_column(primary_key=True, autoincrement=True)
-    word: Mapped[str] = mapped_column(String(100), unique=True, nullable=False, index=True)
+    word: Mapped[str] = mapped_column(
+        String(100), unique=True, nullable=False, index=True
+    )
     definition: Mapped[str] = mapped_column(Text, nullable=False)
 
     def __repr__(self) -> str:
