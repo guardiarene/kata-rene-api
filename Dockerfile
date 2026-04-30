@@ -21,7 +21,6 @@ WORKDIR /app
 COPY --from=builder /app/.venv /app/.venv
 
 COPY app/ ./app/
-COPY main.py .
 
 ENV PATH="/app/.venv/bin:$PATH"
 
