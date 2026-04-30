@@ -4,6 +4,7 @@ from fastapi import FastAPI
 
 from app.config import settings
 from app.db.session import Base, engine
+from app.models import dictionary as _models  # noqa: F401
 from app.routers import dictionary, nth_letter, shopping
 
 
